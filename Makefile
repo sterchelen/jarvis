@@ -1,9 +1,10 @@
-BINDIR			:=	$(CURDIR)/bin
-GOCMD				=	go
-GOBUILD			=	$(GOCMD) build
-GOCLEAN			=	$(GOCMD) clean
-GOTEST			=	$(GOCMD) test
-BINNAME			?=	jarvis
+BINDIR		:=	$(CURDIR)/bin
+BINNAME		?=	jarvis
+
+GOCMD			=	go
+GOBUILD		=	$(GOCMD) build
+GOCLEAN		=	$(GOCMD) clean
+GOTEST		=	$(GOCMD) test
 
 #------
 #	all
@@ -16,18 +17,18 @@ all: test build
 .PHONY: build
 
 build:
-				$(GOBUILD) -o $(BINDIR)/$(BINNAME) -v ./cmd/jarvis
+	$(GOBUILD) -o $(BINDIR)/$(BINNAME) -v 
 
 #------
 #	test
 .PHONY: test
 
 test:
-				$(GOTEST) -v ./...
+	$(GOTEST) -v ./...
 
 #------
 #	test
 .PHONY: clean
 
 clean:
-				$(GOCLEAN)
+	$(GOCLEAN)
